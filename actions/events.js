@@ -27,7 +27,6 @@ export async function createEvent(data) {
       userId: user.id,
     },
   });
-
   return event;
 }
 

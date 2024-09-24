@@ -36,6 +36,7 @@ const EventForm = ({ onSubmitForm, initialData = {} }) => {
    const { loading, error, fn: fnCreateEvent } = useFetch(createEvent);
 
    const onSubmit = async (data) => {
+      console.log(data);
       await fnCreateEvent(data);
       if (!loading && !error) onSubmitForm();
       router.refresh(); // Refresh the page to show updated data

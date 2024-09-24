@@ -48,7 +48,6 @@ export default function EventCard({ event, username, isPublic = false }) {
          );
       }
    };
-
    return (
       <Card
          className="flex flex-col justify-between cursor-pointer"
@@ -66,7 +65,7 @@ export default function EventCard({ event, username, isPublic = false }) {
          </CardHeader>
          <CardContent>
             <p>
-               {event.description.substring(0, event.description.indexOf('.'))}.
+               {event.description.substring(0, event.description.indexOf('.'))}
             </p>
          </CardContent>
          {!isPublic && (
