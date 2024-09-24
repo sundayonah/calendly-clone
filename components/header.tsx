@@ -7,37 +7,40 @@ import Link from 'next/link';
 import { Button } from './ui/button';
 import { PenBox } from 'lucide-react';
 import UserMenu from './user-menu';
+import { checkUser } from '@/lib/checkUser';
 
 async function Header() {
-   //   await checkUser();
+   await checkUser();
 
    return (
-      <nav className="mx-auto py-2 px-4 flex justify-between items-center shadow-md border-b-2">
-         <Link href="/" className="flex items-center">
-            <Image
-               src="/logo.png"
-               width="150"
-               height="60"
-               alt="Schedulrr Logo"
-               className="h-16 w-auto"
-            />
-         </Link>
-
-         <div className="flex items-center gap-4">
-            <Link href="/events?create=true">
-               <Button variant="default" className="flex items-center gap-2">
-                  <PenBox size={18} />
-                  <span className="hidden sm:inline">Create Event</span>
-               </Button>
+      <nav className="fixed top-0 left-0 right-0 z-40 ">
+         <div className="bg-gradient-to-b from-blue-50 to-white mx-auto py-2 px-4 flex justify-between items-center shadow-md border-b-2">
+            <Link href="/" className="flex items-center">
+               <Image
+                  src="/logo.png"
+                  width="150"
+                  height="60"
+                  alt="Schedulrr Logo"
+                  className="h-16 w-auto"
+               />
             </Link>
-            <SignedOut>
-               <SignInButton forceRedirectUrl="/dashboard">
-                  <Button variant="outline">Login</Button>
-               </SignInButton>
-            </SignedOut>
-            <SignedIn>
-               <UserMenu />
-            </SignedIn>
+
+            <div className="flex items-center gap-4">
+               <Link href="/events?create=true">
+                  <Button variant="default" className="flex items-center gap-2">
+                     <PenBox size={18} />
+                     <span className="hidden sm:inline">Create Event</span>
+                  </Button>
+               </Link>
+               <SignedOut>
+                  <SignInButton forceRedirectUrl="/dashboard">
+                     <Button variant="outline">Login</Button>
+                  </SignInButton>
+               </SignedOut>
+               <SignedIn>
+                  <UserMenu />
+               </SignedIn>
+            </div>
          </div>
       </nav>
    );

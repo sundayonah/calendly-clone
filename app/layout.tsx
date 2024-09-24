@@ -3,6 +3,7 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import Header from '@/components/header';
 import { ClerkProvider } from '@clerk/nextjs';
+import CreateEventDrawer from '@/components/create-event';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
                      <p>Made with 💌 by xhunteQ.</p>
                   </div>
                </footer>
+               <CreateEventDrawer />
             </body>
          </html>
       </ClerkProvider>
